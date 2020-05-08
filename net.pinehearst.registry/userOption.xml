@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data
+	xmlns="http://www.woltlab.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/option.xsd">
+	<import>
+		<options>
+			<option name="pinehearstRegistryLocation">
+				<categoryname>profile.personal</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue></defaultvalue>
+				<selectoptions>-Ausland-
+-Bundesweit-
+Assentia
+Astoria State
+Freeland
+Laurentiana
+New Alcantara
+Serena</selectoptions>
+				<required>1</required>
+				<visible>15</visible>
+				<editable>3</editable>
+				<searchable>1</searchable>
+			</option>
+		</options>
+	</import>
+</data>

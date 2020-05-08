@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/language.xsd" languagecode="en">
+	<category name="wcf.user.option">
+		<item name="wcf.user.option.pinehearstRegistryLocation"><![CDATA[State or Territory]]></item>
+		<item name="wcf.user.option.pinehearstRegistryLocation.description"><![CDATA[The state or territory you are living in.]]></item>
+	</category>
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.pinehearst"><![CDATA[Pinehearst]]></item>
+		<item name="wcf.acp.option.category.pinehearst.registry"><![CDATA[Registry]]></item>
+		<item name="wcf.acp.option.category.pinehearst.registry.not_implemented"><![CDATA[NOT_IMPLEMENTED]]></item>
+
+		<item name="wcf.acp.option.pinehearst_registry_user_id"><![CDATA[Registry UserID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_user_id.description"><![CDATA[Automated posts are created with this user.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_relocations_thread_id"><![CDATA[Relocations ThreadID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_relocations_thread_id.description"><![CDATA[Relocation messages will be posted in this thread.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_requests_thread_id"><![CDATA[Requests ThreadID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_requests_thread_id.description"><![CDATA[Requests can be made by posting in this thread.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_responses_thread_id"><![CDATA[Responses ThreadID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_responses_thread_id.description"><![CDATA[Requests will be approved/denied in this thread.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_protocol_post_id"><![CDATA[Protocol PostID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_protocol_post_id.description"><![CDATA[This post will be updated with the current state of the registry.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_validity_threshold_timespan"><![CDATA[Inactivity Timespan]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_validity_threshold_timespan.description"><![CDATA[Timespan after which an account that hasn't posted is considered inactive.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parents_group_id"><![CDATA[FederalIDs GroupID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parents_group_id.description"><![CDATA[FederalIDs will be added/removed to/from this group automatically (-1 to disable).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_children_group_id"><![CDATA[StateIDs GroupID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_children_group_id.description"><![CDATA[StateIDs will be added/removed to/from this group automatically (-1 to disable).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_max_child_ids"><![CDATA[Max StateIDs]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_max_child_ids.description"><![CDATA[Maximum number of StateIDs that can be associated with the same FederalID.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_use_location_groups"><![CDATA[Use Location Groups]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_use_location_groups.description"><![CDATA[Add/remove registered IDs to/from the groups specified by location (see database entries).]]></item>
+
+		<item name="wcf.acp.option.pinehearst_registry_max_child_ids_per_location"><![CDATA[Max StateIDs per Location]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_max_child_ids_per_location.description"><![CDATA[Maximum number of StateIDs that can be associated with the same FederalID in one Location (-1 for unlimited).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_count_parent_id_to_max_child_ids"><![CDATA[FederalID state counts to max StateIDs]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_count_parent_id_to_max_child_ids.description"><![CDATA[The state of the FederalID counts to the limitation of StateIDs.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parent_id_is_child_id"><![CDATA[FederalID is StateID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parent_id_is_child_id.description"><![CDATA[If a FederalID automatically counts as a StateID in the state it's registered at.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parent_id_auto_create_child_id"><![CDATA[FederalID automatically creates StateID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parent_id_auto_create_child_id.description"><![CDATA[If registering a FederalID automatically registers the same ID as a StateID.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_parent_id_count"><![CDATA[Block FederalIDs Count]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_parent_id_count.description"><![CDATA[Block registering of FederalIDs who lost their registration this amount of times in a timespan (-1 to disable).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_parent_id_timespan"><![CDATA[Block FederalIDs Timespan]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_parent_id_timespan.description"><![CDATA[Block registering of FederalIDs who lost their registration in this timespan (-1 for forever).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_child_id_count"><![CDATA[Block StateIDs Count]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_child_id_count.description"><![CDATA[Block registering of StateIDs who lost their registration this amount of times in a timespan (-1 to disable).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_child_id_timespan"><![CDATA[Block StateIDs Timespan]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_child_id_timespan.description"><![CDATA[Block registering of StateIDs who lost their registration in this timespan (-1 for forever).]]></item>
+	</category>
+</language>

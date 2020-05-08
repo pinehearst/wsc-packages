@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/language.xsd" languagecode="en">
+	<category name="wcf.user.option">
+		<item name="wcf.user.option.pinehearstRegistryLocation"><![CDATA[Bundesstaat / Territorium]]></item>
+		<item name="wcf.user.option.pinehearstRegistryLocation.description"><![CDATA[Der Bundesstaat oder das Territorium in dem du lebst.]]></item>
+	</category>
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.pinehearst"><![CDATA[Pinehearst]]></item>
+		<item name="wcf.acp.option.category.pinehearst.registry"><![CDATA[Registry]]></item>
+		<item name="wcf.acp.option.category.pinehearst.registry.not_implemented"><![CDATA[NICHT_IMPLEMENTIERT]]></item>
+
+		<item name="wcf.acp.option.pinehearst_registry_user_id"><![CDATA[Registry UserID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_user_id.description"><![CDATA[Automatisierte Beiträge werden von diesem Benutzer erstellt.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_relocations_thread_id"><![CDATA[Relocations ThreadID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_relocations_thread_id.description"><![CDATA[Umzugsnachrichten werden in diesem Thread erstellt.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_requests_thread_id"><![CDATA[Requests ThreadID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_requests_thread_id.description"><![CDATA[Anträge können in diesem Thread erstellt werden.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_responses_thread_id"><![CDATA[Responses ThreadID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_responses_thread_id.description"><![CDATA[Anträge werden in diesem Thread quittiert.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_protocol_post_id"><![CDATA[Protocol PostID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_protocol_post_id.description"><![CDATA[In diesem Post wird über den aktuellen Stand der Registrierungen buchgeführt.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_validity_threshold_timespan"><![CDATA[Inactivity Timespan]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_validity_threshold_timespan.description"><![CDATA[Eine ID, die keinen Post in diesem Zeitraum erstellt, wird deregistriert.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parents_group_id"><![CDATA[FederalIDs GroupID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parents_group_id.description"><![CDATA[FederalIDs werden automatisch zu dieser Gruppe hinzugefügt/gelöscht (-1 zum Deaktivieren).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_children_group_id"><![CDATA[StateIDs GroupID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_children_group_id.description"><![CDATA[StateIDs werden automatisch zu dieser Gruppe hinzugefügt/gelöscht (-1 zum Deaktivieren).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_max_child_ids"><![CDATA[Max StateIDs]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_max_child_ids.description"><![CDATA[Maximale Anzahl an StateIDs die einer FederalID zugeorndet sein dürfen (-1 für unlimitiert).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_use_location_groups"><![CDATA[Use Location Groups]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_use_location_groups.description"><![CDATA[Hinzufügen/Entfernen von IDs zu/aus den per Location festgelegten Gruppen (siehe Datenbankeinträge).]]></item>
+
+		<item name="wcf.acp.option.pinehearst_registry_max_child_ids_per_location"><![CDATA[Max StateIDs per Location]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_max_child_ids_per_location.description"><![CDATA[Maximale Anzahl an StateIDs die einer FederalID in einer Location zugeordnet sein dürfen (-1 für unlimitiert).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_count_parent_id_to_max_child_ids"><![CDATA[FederalID state counts to max StateIDs]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_count_parent_id_to_max_child_ids.description"><![CDATA[Der Staat bzw. das Territorium indem die FederalID gemeldet ist, zählt zum Limit für StateIDs.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parent_id_is_child_id"><![CDATA[FederalID is StateID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parent_id_is_child_id.description"><![CDATA[Soll eine FederalID automatisch als StateID an seinem Wohnort zählen?]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parent_id_auto_create_child_id"><![CDATA[FederalID automatically creates StateID]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_parent_id_auto_create_child_id.description"><![CDATA[Ob das Registrieren einer FederalID die selbe ID automatisch als StateID registriert.]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_parent_id_count"><![CDATA[Block FederalIDs Count]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_parent_id_count.description"><![CDATA[Blockiert das Registrieren einer FederalID, die bereits x mal ihre Registrierung im Zeitraum verloren hat (-1 zum Deaktivieren).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_parent_id_timespan"><![CDATA[Block FederalIDs Timespan]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_parent_id_timespan.description"><![CDATA[Blockiert das Registrieren einer FederalID, die bereits x mal ihre Registrierung in diesem Zeitraum verloren hat (-1 für unbegrenzt).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_child_id_count"><![CDATA[Block StateIDs Count]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_child_id_count.description"><![CDATA[Blockiert das Registrieren einer StateID, die bereits x mal ihre Registrierung im Zeitraum verloren hat (-1 zum Deaktivieren).]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_child_id_timespan"><![CDATA[Block StateIDs Timespan]]></item>
+		<item name="wcf.acp.option.pinehearst_registry_block_child_id_timespan.description"><![CDATA[Blockiert das Registrieren einer StateID, die bereits x mal ihre Registrierung in diesem Zeitraum verloren hat (-1 für unbegrenzt).]]></item>
+	</category>
+</language>

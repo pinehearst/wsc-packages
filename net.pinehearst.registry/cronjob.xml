@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data
+	xmlns="http://www.woltlab.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/cronjob.xsd">
+	<import>
+		<cronjob name="net.pinehearst.registry.validityCheck">
+			<classname>wcf\system\cronjob\pinehearst\registry\ValidityCheckCronjob</classname>
+			<description>Checks if someone has lost their registration</description>
+			<description language="de">Überprüft ob jemand seine Registrierung verloren hat</description>
+			<startminute>*/5</startminute>
+			<starthour>*</starthour>
+			<startdom>*</startdom>
+			<startmonth>*</startmonth>
+			<startdow>*</startdow>
+			<canbeedited>0</canbeedited>
+			<canbedisabled>0</canbedisabled>
+		</cronjob>
+	</import>
+</data>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package
+	xmlns="http://www.woltlab.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/package.xsd"
+	name="net.pinehearst.registry">
+	<packageinformation>
+		<!-- net.pinehearst.registry -->
+		<packagename>Pinehearst Registry</packagename>
+		<packagedescription>United States Electronic Registration System (U.S.E.R.S.) provided by Pinehearst Labs</packagedescription>
+		<version>1.0.0</version>
+		<date>2020-05-05</date>
+		<license>WTFPL version 2</license>
+	</packageinformation>
+	<authorinformation>
+		<author>Pinehearst Labs</author>
+		<authorurl>https://www.pinehearst.net</authorurl>
+	</authorinformation>
+	<requiredpackages>
+		<requiredpackage>com.woltlab.wbb</requiredpackage>
+	</requiredpackages>
+	<compatibility>
+		<api version="2019"/>
+	</compatibility>
+	<instructions type="install">
+		<instruction type="cronjob"/>
+		<instruction type="eventListener"/>
+		<instruction type="file"/>
+		<instruction type="language"/>
+		<instruction type="option"/>
+		<instruction type="sql"/>
+		<instruction type="template"/>
+		<instruction type="userOption"/>
+	</instructions>
+</package>

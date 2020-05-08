@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data
+	xmlns="http://www.woltlab.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/tornado/eventListener.xsd">
+	<import>
+		<!-- user -->
+		<eventlistener name="pinehearstRegistryRelocationListener">
+			<environment>user</environment>
+			<eventclassname>wcf\data\user\UserAction</eventclassname>
+			<eventname>initializeAction</eventname>
+			<listenerclassname>wcf\system\event\listener\pinehearst\registry\RelocationListener</listenerclassname>
+		</eventlistener>
+		<eventlistener name="pinehearstRegistryRequestListener">
+			<environment>user</environment>
+			<eventclassname>wcf\system\message\QuickReplyManager</eventclassname>
+			<eventname>createdMessage</eventname>
+			<listenerclassname>wcf\system\event\listener\pinehearst\registry\RequestListener</listenerclassname>
+		</eventlistener>
+		<!-- /user -->
+	</import>
+</data>

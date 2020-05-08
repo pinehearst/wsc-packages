@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data
+	xmlns="http://www.woltlab.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/2019/option.xsd">
+	<import>
+		<categories>
+			<category name="pinehearst" />
+			<category name="pinehearst.registry">
+				<parent>pinehearst</parent>
+			</category>
+			<category name="pinehearst.registry.not_implemented">
+				<parent>pinehearst</parent>
+			</category>
+		</categories>
+
+		<options>
+			<option name="pinehearst_registry_user_id">
+				<categoryname>pinehearst.registry</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<minvalue>1</minvalue>
+			</option>
+			<option name="pinehearst_registry_relocations_thread_id">
+				<categoryname>pinehearst.registry</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<minvalue>1</minvalue>
+			</option>
+			<option name="pinehearst_registry_requests_thread_id">
+				<categoryname>pinehearst.registry</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<minvalue>1</minvalue>
+			</option>
+			<option name="pinehearst_registry_responses_thread_id">
+				<categoryname>pinehearst.registry</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<minvalue>1</minvalue>
+			</option>
+			<option name="pinehearst_registry_protocol_post_id">
+				<categoryname>pinehearst.registry</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<minvalue>1</minvalue>
+			</option>
+
+			<option name="pinehearst_registry_validity_threshold_timespan">
+				<categoryname>pinehearst.registry</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue>28 days</defaultvalue>
+			</option>
+
+			<option name="pinehearst_registry_parents_group_id">
+				<categoryname>pinehearst.registry</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>-1</defaultvalue>
+				<minvalue>-1</minvalue>
+			</option>
+			<option name="pinehearst_registry_children_group_id">
+				<categoryname>pinehearst.registry</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>-1</defaultvalue>
+				<minvalue>-1</minvalue>
+			</option>
+			<option name="pinehearst_registry_use_location_groups">
+				<categoryname>pinehearst.registry</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+
+			<option name="pinehearst_registry_max_child_ids">
+				<categoryname>pinehearst.registry</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>-1</defaultvalue>
+				<minvalue>-1</minvalue>
+			</option>
+			<option name="pinehearst_registry_max_child_ids_per_location">
+				<categoryname>pinehearst.registry.not_implemented</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<minvalue>-1</minvalue>
+			</option>
+			<option name="pinehearst_registry_count_parent_id_to_max_child_ids">
+				<categoryname>pinehearst.registry.not_implemented</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="pinehearst_registry_parent_id_is_child_id">
+				<categoryname>pinehearst.registry.not_implemented</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="pinehearst_registry_parent_id_auto_create_child_id">
+				<categoryname>pinehearst.registry.not_implemented</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+
+			<option name="pinehearst_registry_block_parent_id_count">
+				<categoryname>pinehearst.registry.not_implemented</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>-1</defaultvalue>
+				<minvalue>-1</minvalue>
+			</option>
+			<option name="pinehearst_registry_block_parent_id_timespan">
+				<categoryname>pinehearst.registry.not_implemented</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue>60 days</defaultvalue>
+			</option>
+
+			<option name="pinehearst_registry_block_child_id_count">
+				<categoryname>pinehearst.registry.not_implemented</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>-1</defaultvalue>
+				<minvalue>-1</minvalue>
+			</option>
+			<option name="pinehearst_registry_block_child_id_timespan">
+				<categoryname>pinehearst.registry.not_implemented</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue>90 days</defaultvalue>
+			</option>
+		</options>
+	</import>
+</data>
