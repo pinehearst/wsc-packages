@@ -49,7 +49,11 @@
 			</td>
 			<td title="{$entry->lastActivityAbsolute}">
 				{if $entry->postID}
-					{$entry->lastActivityRelative} in <a href="{$entry->post->getLink()}">{$entry->thread->topic}</a>
+					{if $entry->showDetails}
+						{$entry->lastActivityRelative} in <a href="{$entry->post->getLink()}">{$entry->thread->topic}</a>
+					{else}
+						{$entry->lastActivityRelative} in a Private Board
+					{/if}
 				{else}
 					Registration
 				{/if}
@@ -92,7 +96,11 @@
 			</td>
 			<td title="{$entry->lastActivityAbsolute}">
 				{if $entry->postID}
-					{$entry->lastActivityRelative} in <a href="{$entry->post->getLink()}">{$entry->thread->topic}</a>
+					{if $entry->showDetails}
+						{$entry->lastActivityRelative} in <a href="{$entry->post->getLink()}">{$entry->thread->topic}</a>
+					{else}
+						{$entry->lastActivityRelative} in a Private Board
+					{/if}
 				{else}
 					Registration
 				{/if}
@@ -138,7 +146,11 @@
 			</td>
 			<td title="{$entry->lastActivityAbsolute}">
 				{if $entry->postID}
-					{$entry->lastActivityRelative} in <a href="{$entry->post->getLink()}">{$entry->thread->topic}</a>
+					{if $entry->showDetails}
+						{$entry->lastActivityRelative} in <a href="{$entry->post->getLink()}">{$entry->thread->topic}</a>
+					{else}
+						{$entry->lastActivityRelative} in a Private Board
+					{/if}
 				{else}
 					Registration
 				{/if}

@@ -3,11 +3,11 @@ namespace wcf\util\pinehearst\registry;
 
 use DateTime;
 use wbb\data\board\Board;
-use wbb\data\board\BoardCache;
 use wbb\data\post\Post;
 use wbb\data\post\PostAction;
 use wbb\data\post\PostEditor;
 use wbb\data\thread\Thread;
+use wcf\data\pinehearst\registry\Entry;
 use wcf\data\pinehearst\registry\EntryList;
 use wcf\data\pinehearst\registry\Location;
 use wcf\data\pinehearst\registry\LocationList;
@@ -15,27 +15,9 @@ use wcf\data\user\User;
 use wcf\system\html\input\HtmlInputProcessor;
 use wcf\system\WCF;
 use wcf\util\DateUtil;
-use wcf\util\pinehearst\RegistryUtil;
 
 final class PostUtil {
 	private const TEMPLATE_APPLICATION = 'wcf';
-
-	public static function getRegistryUser() {
-		return new User(PINEHEARST_REGISTRY_USER_ID);
-	}
-
-	public static function getValidBoardIDs(int $parentBoardID = null): array {
-		$boardIDs = [];
-
-		foreach (BoardCache::getInstance()->getAllChildIDs($parentBoardID) as $boardID) {
-			$board = BoardCache::getInstance()->getBoard($boardID);
-			if ($board->countUserPosts > 0) {
-				$boardIDs[] = $board->boardID;
-			}
-		}
-
-		return $boardIDs;
-	}
 
 	public static function deletePost(Post $post): array {
 		$action = new PostAction([$post], 'delete', [
@@ -73,7 +55,7 @@ final class PostUtil {
 	}
 
 	private static function createPost(int $threadID, string $message) {
-		$user = self::getRegistryUser();
+		$user = new User(PINEHEARST_REGISTRY_USER_ID);
 
 		$htmlInputProcessor = new HtmlInputProcessor();
 		$htmlInputProcessor->process($message, 'com.woltlab.wbb.post');
@@ -91,7 +73,27 @@ final class PostUtil {
 		return $action->executeAction()['returnValues'];
 	}
 
+	public static function getLatestRelevantPostID(Entry $entry) {
+		$location = new Location($entry->locationID);
+
+		$boardIDs = BoardUtil::getValidBoardIDs(
+			// child-ids check only posts in their respective state board
+			$entry->parentID > 0 ? $location->boardID : null
+		);
+
+		$sql = sprintf(
+			'SELECT MAX(p.postID) AS postID FROM wbb1_post p JOIN wbb1_thread t USING (threadID) WHERE p.userID = ? AND t.boardID IN (%s)',
+			implode(',', $boardIDs)
+		);
+
+		$sth = WCF::getDB()->prepareStatement($sql);
+		$sth->execute([$entry->userID]);
+		return $sth->fetchArray()['postID'];
+	}
+
 	public static function updateProtocol() {
+		$guestBoardIDs = BoardUtil::getGuestBoardIDs();
+
 		$locationMap = [];
 
 		foreach (LocationList::get() as $location) {
@@ -104,9 +106,16 @@ final class PostUtil {
 		foreach (EntryList::get() as $entry) {
 			$entry->user = (new User($entry->userID));
 
+			// todo: remove this again
+			$entry->postID = self::getLatestRelevantPostID($entry);
+
 			if ($entry->postID > 0) {
 				$entry->post = (new Post($entry->postID));
-				$entry->thread = (new Thread($entry->threadID));
+				$entry->thread = (new Thread($entry->post->threadID));
+				$entry->showDetails = in_array($entry->thread->boardID, $guestBoardIDs);
+
+				// todo: remove this again
+				$entry->lastActivity = $entry->post->time;
 			}
 
 			$entry->location = $locationMap[$entry->locationID];
@@ -171,7 +180,7 @@ final class PostUtil {
 		$htmlInputProcessor = new HtmlInputProcessor();
 		$htmlInputProcessor->process($message, 'com.woltlab.wbb.post');
 
-		$user = self::getRegistryUser();
+		$user = new User(PINEHEARST_REGISTRY_USER_ID);
 		$post = new Post(PINEHEARST_REGISTRY_PROTOCOL_POST_ID);
 		$postEditor = new PostEditor($post);
 		$postEditor->update([

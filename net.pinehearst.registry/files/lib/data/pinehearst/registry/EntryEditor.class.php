@@ -3,7 +3,7 @@ namespace wcf\data\pinehearst\registry;
 
 use wbb\data\post\Post;
 use wcf\data\DatabaseObjectEditor;
-use wcf\util\pinehearst\registry\PostUtil;
+use wcf\util\pinehearst\registry\BoardUtil;
 
 class EntryEditor extends DatabaseObjectEditor {
 	/**
@@ -18,7 +18,7 @@ class EntryEditor extends DatabaseObjectEditor {
 
 		$location = new Location($this->locationID);
 
-		$boardIDs = PostUtil::getValidBoardIDs(
+		$boardIDs = BoardUtil::getValidBoardIDs(
 			// child-ids check only posts in their respective state board
 			$this->parentID > 0 ? $location->boardID : null
 		);

@@ -49,17 +49,6 @@ class EntryAction extends AbstractDatabaseObjectAction {
 		]);
 	}
 
-	private function thresholdPost(User $user, EntryList $children) {
-		return PostUtil::createResponsePost([
-			'message' => sprintf(
-				'You lost your registration due to being [b]inactive for more than %s[/b]',
-				PINEHEARST_REGISTRY_VALIDITY_THRESHOLD_TIMESPAN
-			),
-			'user' => $user,
-			'children' => $children,
-		]);
-	}
-
 	private function getEntryEditor() {
 		$objects = $this->getObjects();
 		if (count($objects) != 1) {
@@ -465,10 +454,17 @@ class EntryAction extends AbstractDatabaseObjectAction {
 			UserGroupUtil::removeFromParentsGroup([$entry->userID]);
 			UserGroupUtil::removeFromLocationGroup([$entry->userID], $location->groupID);
 
-			$this->thresholdPost(new User($entry->userID), $children);
+			PostUtil::createResponsePost([
+				'message' => sprintf(
+					'You lost your registration due to being [b]inactive for more than %s[/b]',
+					PINEHEARST_REGISTRY_VALIDITY_THRESHOLD_TIMESPAN
+				),
+				'user' => new User($entry->userID),
+				'children' => $children,
+			]);
 		}
 
-		PostUtil::updateProtocol();
+		return PostUtil::updateProtocol();
 	}
 
 	public function validateRequestUpdate() {

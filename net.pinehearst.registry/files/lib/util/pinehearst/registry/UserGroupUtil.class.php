@@ -2,11 +2,10 @@
 namespace wcf\util\pinehearst\registry;
 
 use wcf\data\user\UserAction;
-use wcf\util\pinehearst\RegistryUtil;
 
 final class UserGroupUtil {
-	private static function add(array $userIDs, int $groupID) {
-		if ($groupID < 1) {
+	private static function add(array $userIDs, int $groupID = null) {
+		if (empty($groupID)) {
 			return;
 		}
 
@@ -18,8 +17,8 @@ final class UserGroupUtil {
 		return $action->executeAction();
 	}
 
-	private static function remove(array $userIDs, int $groupID) {
-		if ($groupID < 1) {
+	private static function remove(array $userIDs, int $groupID = null) {
+		if (empty($groupID)) {
 			return;
 		}
 
@@ -45,7 +44,7 @@ final class UserGroupUtil {
 		return self::remove($userIDs, PINEHEARST_REGISTRY_CHILDREN_GROUP_ID);
 	}
 
-	public static function addToLocationGroup(array $userIDs, int $groupID) {
+	public static function addToLocationGroup(array $userIDs, int $groupID = null) {
 		if (!PINEHEARST_REGISTRY_USE_LOCATION_GROUPS) {
 			return;
 		}
@@ -53,7 +52,7 @@ final class UserGroupUtil {
 		return self::add($userIDs, $groupID);
 	}
 
-	public static function removeFromLocationGroup(array $userIDs, int $groupID) {
+	public static function removeFromLocationGroup(array $userIDs, int $groupID = null) {
 		if (!PINEHEARST_REGISTRY_USE_LOCATION_GROUPS) {
 			return;
 		}

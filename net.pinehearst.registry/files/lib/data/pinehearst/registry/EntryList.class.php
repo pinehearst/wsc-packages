@@ -2,7 +2,6 @@
 namespace wcf\data\pinehearst\registry;
 
 use wcf\data\DatabaseObjectList;
-use wcf\data\user\User;
 
 class EntryList extends DatabaseObjectList {
 	/**
@@ -25,6 +24,8 @@ class EntryList extends DatabaseObjectList {
 		LEFT JOIN wbb1_post p USING (postID)
 		LEFT JOIN wbb1_thread t USING (threadID)
 	';
+
+	public $sqlOrderBy = 'u.username';
 
 	public static function get(): self {
 		$list = new self();

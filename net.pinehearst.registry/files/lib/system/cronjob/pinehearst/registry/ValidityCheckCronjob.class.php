@@ -4,10 +4,11 @@ namespace wcf\system\cronjob\pinehearst\registry;
 use DateInterval;
 use DateTime;
 use wcf\data\cronjob\Cronjob;
+use wbb\data\post\Post;
 use wcf\data\pinehearst\registry\EntryAction;
 use wcf\data\pinehearst\registry\EntryList;
 use wcf\system\cronjob\AbstractCronjob;
-use wcf\util\pinehearst\RegistryUtil;
+use wcf\util\pinehearst\registry\PostUtil;
 
 /**
  * Checks if registered users have lost their registration
@@ -32,6 +33,13 @@ class ValidityCheckCronjob extends AbstractCronjob {
 			EntryList::get()->getObjects(),
 			function ($entry) use ($threshold) {
 				$lastActivity = new DateTime('@' . $entry->lastActivity);
+
+				// TODO: change this back to use stored post
+				$postID = PostUtil::getLatestRelevantPostID($entry);
+				if ($postID > 0) {
+					$lastActivity = new DateTime('@' . (new Post($postID))->time);
+				}
+
 				return $lastActivity->add($threshold)->getTimestamp() < TIME_NOW;
 			}
 		);
