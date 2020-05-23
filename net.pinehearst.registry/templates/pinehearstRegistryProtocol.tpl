@@ -162,4 +162,71 @@
 {/if}
 [/subtab]
 [/tab]
+[tab='By Sponsor']
+{if $parents|empty}
+	<h2>Currently nobody is registered as a <strong>Federal-ID</strong>.</h2>
+{else}
+	{foreach from=$parents item=$entry}
+	[subtab='{$entry->username}']
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Registered</th>
+				<th>Location</th>
+				<th>Last Activity</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>[b]{$entry->username}[/b]</td>
+				<td>Federal-ID</td>
+				<td title="{$entry->registeredOnAbsolute}">{$entry->registeredOnRelative}</td>
+				<td>
+					<a href="{$entry->location->board->getLink()}">
+					{$entry->location->locationName}
+					</a>
+				</td>
+				<td title="{$entry->lastActivityAbsolute}">
+					{if $entry->postID}
+						{if $entry->showDetails}
+							{$entry->lastActivityRelative} in <a href="{$entry->post->getLink()}">{$entry->thread->topic}</a>
+						{else}
+							{$entry->lastActivityRelative} in a Private Board
+						{/if}
+					{else}
+						Registration
+					{/if}
+				</td>
+			</tr>
+			{foreach from=$entry->children item=$entry}
+			<tr>
+				<td>{$entry->username}</td>
+				<td>State-ID</td>
+				<td title="{$entry->registeredOnAbsolute}">{$entry->registeredOnRelative}</td>
+				<td>
+					<a href="{$entry->location->board->getLink()}">
+					{$entry->location->locationName}
+					</a>
+				</td>
+				<td title="{$entry->lastActivityAbsolute}">
+					{if $entry->postID}
+						{if $entry->showDetails}
+							{$entry->lastActivityRelative} in <a href="{$entry->post->getLink()}">{$entry->thread->topic}</a>
+						{else}
+							{$entry->lastActivityRelative} in a Private Board
+						{/if}
+					{else}
+						Registration
+					{/if}
+				</td>
+			</tr>
+			{/foreach}
+		</tbody>
+	</table>
+	[/subtab]
+	{/foreach}
+{/if}
+[/tab]
 [/tabmenu]

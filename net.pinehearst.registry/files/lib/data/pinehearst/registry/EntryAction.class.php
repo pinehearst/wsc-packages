@@ -10,7 +10,6 @@ use wcf\system\cronjob\pinehearst\registry\ValidityCheckCronjob;
 use wcf\system\exception\UserInputException;
 use wcf\util\pinehearst\registry\PostUtil;
 use wcf\util\pinehearst\registry\UserGroupUtil;
-use wcf\util\pinehearst\RegistryUtil;
 
 class EntryAction extends AbstractDatabaseObjectAction {
 	public const

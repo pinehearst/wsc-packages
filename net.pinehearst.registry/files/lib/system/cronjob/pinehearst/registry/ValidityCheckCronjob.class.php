@@ -35,10 +35,10 @@ class ValidityCheckCronjob extends AbstractCronjob {
 				$lastActivity = new DateTime('@' . $entry->lastActivity);
 
 				// TODO: change this back to use stored post
-				$postID = PostUtil::getLatestRelevantPostID($entry);
-				if ($postID > 0) {
-					$lastActivity = new DateTime('@' . (new Post($postID))->time);
-				}
+				#$postID = PostUtil::getLatestRelevantPostID($entry);
+				#if ($postID > 0) {
+				#	$lastActivity = new DateTime('@' . (new Post($postID))->time);
+				#}
 
 				return $lastActivity->add($threshold)->getTimestamp() < TIME_NOW;
 			}

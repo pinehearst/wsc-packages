@@ -104,10 +104,13 @@ final class PostUtil {
 		$entryMap = [];
 
 		foreach (EntryList::get() as $entry) {
+			$entry->children = [];
+			$entry->parent = null;
+
 			$entry->user = (new User($entry->userID));
 
 			// todo: remove this again
-			$entry->postID = self::getLatestRelevantPostID($entry);
+			#$entry->postID = self::getLatestRelevantPostID($entry);
 
 			if ($entry->postID > 0) {
 				$entry->post = (new Post($entry->postID));
@@ -115,7 +118,7 @@ final class PostUtil {
 				$entry->showDetails = in_array($entry->thread->boardID, $guestBoardIDs);
 
 				// todo: remove this again
-				$entry->lastActivity = $entry->post->time;
+				#$entry->lastActivity = $entry->post->time;
 			}
 
 			$entry->location = $locationMap[$entry->locationID];
@@ -137,6 +140,11 @@ final class PostUtil {
 			function ($entry) use ($entryMap) {
 				if ($entry->parentID > 0) {
 					$entry->parent = $entryMap[$entry->parentID];
+				}
+				foreach ($entryMap as $id => $obj) {
+					if ($entry->entryID === $obj->parentID) {
+						$entry->children[] = $obj;
+					}
 				}
 				return $entry;
 			},

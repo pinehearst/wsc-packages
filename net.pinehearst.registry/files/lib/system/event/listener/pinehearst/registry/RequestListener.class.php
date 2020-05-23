@@ -6,7 +6,6 @@ use wcf\data\pinehearst\registry\Entry;
 use wcf\data\pinehearst\registry\EntryAction;
 use wcf\data\pinehearst\registry\EntryEditor;
 use wcf\system\event\listener\IParameterizedEventListener;
-use wcf\util\pinehearst\RegistryUtil;
 use wcf\util\StringUtil;
 
 class RequestListener implements IParameterizedEventListener {
