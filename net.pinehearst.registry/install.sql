@@ -5,6 +5,7 @@ CREATE TABLE `wcf1_pinehearst_registry_location` (
   `locationName` varchar(32) NOT NULL,
   `boardID` int(11) DEFAULT NULL,
 	`groupID` int(11) DEFAULT NULL,
+	`allowsChildEntries` tinyint(1) unsigned NOT NULL DEFAULT 1,
   PRIMARY KEY (`locationID`),
   KEY `wcf1_pinehearst_registry_location_boardID_idx` (`boardID`),
   KEY `wcf1_pinehearst_registry_location_groupID_idx` (`groupID`),
@@ -12,14 +13,15 @@ CREATE TABLE `wcf1_pinehearst_registry_location` (
   CONSTRAINT `wcf1_pinehearst_registry_location_ibfk_2` FOREIGN KEY (`groupID`) REFERENCES `wcf1_user_group` (`groupID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `wcf1_pinehearst_registry_location` (`locationName`, `boardID`, `groupID`)
+INSERT INTO `wcf1_pinehearst_registry_location` (`locationName`, `boardID`, `groupID`, `allowsChildEntries`)
 VALUES
-	('Assentia', null, null),
-	('Astoria State', null, null),
-	('Freeland', null, null),
-	('Laurentiana', null, null),
-	('New Alcantara', null, null),
-	('Serena', null, null);
+	('Assentia', null, null, 1),
+	('Astoria State', null, null, 1),
+	('D.C.', null, null, 0),
+	('Freeland', null, null, 1),
+	('Laurentiana', null, null, 1),
+	('New Alcantara', null, null, 1),
+	('Serena', null, null, 1);
 
 CREATE TABLE `wcf1_pinehearst_registry_entry` (
   `entryID` int(10) unsigned NOT NULL AUTO_INCREMENT,

@@ -166,14 +166,18 @@ class EntryAction extends AbstractDatabaseObjectAction {
 
 		$this->post = PostUtil::createRelocationPost($this->user, $from, $to);
 
-		if ($to->locationID < 1) {
+		if ($to->locationID < 1 || $to->allowsChildEntries < 1) {
 			$entry->delete();
 
 			UserGroupUtil::removeFromParentsGroup([$entry->userID]);
 			UserGroupUtil::removeFromChildrenGroup([$entry->userID]);
 			UserGroupUtil::removeFromLocationGroup([$entry->userID], $from->groupID);
 
-			return $this->approveRequest('You lost your registration, due to changing your location to none of the states or territories of the United States.');
+			if ($to->locationID < 1) {
+				return $this->approveRequest('You lost your registration, due to moving outside the States and Territories of the United States.');
+			}
+
+			return $this->approveRequest('You lost your registration, due to moving to a State or Territory that does not allow State-IDs.');
 		}
 
 		// if this is a parentID, just update the location
@@ -299,6 +303,14 @@ class EntryAction extends AbstractDatabaseObjectAction {
 			}
 		}
 
+		$currentLocation = new Location($currentEntry->locationID);
+
+		if ($currentLocation->allowsChildEntries < 1) {
+			return $this->approveRequest('@%s is now your Federal-ID. You are not registered in a Location that allows State-IDs, so you were deregistered.', [
+				$targetName
+			]);
+		}
+
 		// Let's create a child entry
 		EntryEditor::create([
 			'userID' => $currentEntry->userID,
@@ -307,8 +319,6 @@ class EntryAction extends AbstractDatabaseObjectAction {
 			'registeredOn' => TIME_NOW,
 			'postID' => null,
 		]);
-
-		$currentLocation = new Location($currentEntry->locationID);
 
 		UserGroupUtil::addToChildrenGroup([$this->user->userID]);
 		UserGroupUtil::addToLocationGroup([$this->user->userID], $currentLocation->groupID);
@@ -334,6 +344,9 @@ class EntryAction extends AbstractDatabaseObjectAction {
 
 		if ($currentLocation->locationID < 1) {
 			return $this->denyRequest('You have to be registered as living in a State or Territory of the United States.');
+		}
+		if ($currentLocation->allowsChildEntries < 1) {
+			return $this->denyRequest('You have to be registered in a location that allows State-IDs.');
 		}
 
 		$targetName = $this->getTargetName();
